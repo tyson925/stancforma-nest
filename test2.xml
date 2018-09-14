@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<root>
+    <rect x="402.066" y="437.707" width="30.912" height="18.155" fill="none" stroke="#010101" />
+    <rect x="487.758" y="450.675" width="29.564" height="5.188" fill="none" stroke="#010101" />
+    <rect x="565.949" y="691.507" width="25.963" height="17.636" fill="none" stroke="#010101" />
+    <rect x="687.32" y="653.708" width="17.01" height="40.392" fill="none" stroke="#010101" />
+    <rect x="644.789" y="684.767" width="17.004" height="17.634" fill="none" stroke="#010101" />
+    <rect x="720.844" y="653.708" width="47.904" height="25.868" fill="none" stroke="#010101" />
+    <polygon fill="none" stroke="#010101" stroke-miterlimit="10" points="1204.94,1020.55 1200.53,1019.2 1200.53,1019.2 1204.94,1013.55 1204.94,1013.55 1204.94,1020.55 "/>
+    <polygon fill="none" stroke="#010101" stroke-miterlimit="10" points="1200.53,1039.85 1204.94,1038.49 1204.94,1038.49 1204.94,1045.49 1204.94,1045.49 1200.53,1039.85 "/>
+
+</root>

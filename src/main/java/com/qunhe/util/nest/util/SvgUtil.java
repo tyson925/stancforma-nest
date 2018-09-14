@@ -23,7 +23,7 @@ public class SvgUtil {
                 double ox = placement.translate.x;
                 double oy = placement.translate.y;
                 double rotate = placement.rotate;
-                s += "<g transform=\"translate(" + ox + x + " " + oy + y + ") rotate(" + rotate + ")\"> \n";
+                s += "<g bid="+bid+" transform=\"translate(" + ox + x + " " + oy + y + ") rotate(" + rotate + ")\"> \n";
                 s += "<path d=\"";
                 for (int i = 0; i < nestPath.getSegments().size(); i++) {
                     if (i == 0) {

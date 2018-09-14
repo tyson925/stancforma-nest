@@ -98,12 +98,13 @@ public class CommonUtil {
                 if(j == i ){
                     continue;
                 }
-
-                if(GeometryUtil.pointInPolygon(p.getSegments().get(0) , list.get(j)) == true ){
-                    list.get(j).getChildren().add(p);
-                    p.setParent(list.get(j));
-                    isChild = true;
-                    break;
+                if (GeometryUtil.pointInPolygon(p.getSegments().get(0), list.get(j)) != null) {
+                    if (GeometryUtil.pointInPolygon(p.getSegments().get(0), list.get(j)) == true) {
+                        list.get(j).getChildren().add(p);
+                        p.setParent(list.get(j));
+                        isChild = true;
+                        break;
+                    }
                 }
             }
             if(!isChild){
@@ -209,11 +210,14 @@ public class CommonUtil {
         List<NestPath> polygons = new ArrayList<NestPath>();
         for(int i =0 ; i<parts.size();i++){
             NestPath cleanPoly = NestPath.cleanNestPath(parts.get(i));
-            cleanPoly.bid = parts.get(i).bid;
-            if(cleanPoly.size() > 2 &&  Math.abs(GeometryUtil.polygonArea(cleanPoly)) > curve_tolerance * curve_tolerance){
-                cleanPoly.setSource(i);
+            System.out.println(parts.get(i));
+            if (cleanPoly!=null) {
+                cleanPoly.bid = parts.get(i).bid;
+                if (cleanPoly.size() > 2 && Math.abs(GeometryUtil.polygonArea(cleanPoly)) > curve_tolerance * curve_tolerance) {
+                    cleanPoly.setSource(i);
 
-                polygons.add(cleanPoly);
+                    polygons.add(cleanPoly);
+                }
             }
         }
 
