@@ -69,7 +69,9 @@ public class NestTest {
 
     @Test
     public void testSample() throws Exception {
-        List<NestPath> polygons = readData("forest_descriptor.txt");//transferSvgIntoPolygons();
+        List<NestPath> polygons = readData("./slicer/Sz-M-2018-10-0195gumi.dxf.txt");transferSvgIntoPolygons();
+        //List<NestPath> polygons = readData("./Downloads/RUBBER_I_10.txt");
+        //List<NestPath> polygons = readData("./test.txt");
         //List<NestPath> polygons = new LinkedList<>();
         //System.out.println(polygons);
         //List<NestPath> polygons = new LinkedList<>();
@@ -86,8 +88,8 @@ public class NestTest {
         //polygons.add(nestPath2);
         //polygons.add(nestPath2);
         NestPath bin = new NestPath();
-        double binWidth = 15311.822;
-        double binHeight = 15339.235;
+        double binWidth = 500;
+        double binHeight = 300;
         bin.add(0, 0);
         bin.add(binWidth, 0);
         bin.add(binWidth, binHeight);
@@ -95,7 +97,8 @@ public class NestTest {
         bin.bid = -1;
         Config config = new Config();
         config.SPACING = 0;
-        config.POPULATION_SIZE = 5;
+        config.POPULATION_SIZE = 15;
+        
         Nest nest = new Nest(bin, polygons, config, 2);
         List<List<Placement>> appliedPlacement = nest.startNest();
         System.out.println(appliedPlacement);
@@ -120,6 +123,10 @@ public class NestTest {
                         double x = Double.parseDouble(pointDataValues[1]);
                         double y = Double.parseDouble(pointDataValues[2]);
                         polygon.add(x, y);
+                        double x1 = Double.parseDouble(pointDataValues[3]);
+                        double y1 = Double.parseDouble(pointDataValues[4]);
+                        polygon.add(x1, y1);
+
                     } else if (pointDataValues[0].equals("A")) {
                         double cx = Double.parseDouble(pointDataValues[1]);
                         double cy = Double.parseDouble(pointDataValues[2]);

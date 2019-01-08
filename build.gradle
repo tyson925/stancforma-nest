@@ -37,7 +37,7 @@ repositories {
     }
 }
 
-mainClassName = "com.blackswan.spark.irrelevancyFilter.LDAIrrelevancyFilterRunner"
+mainClassName = "com.stancforma.nesting.Nest"
 
 //mainClassName = "com.blackswan.spark.irrelevancyFilter.LDAIrrelevancyFilterModelRunnerCMD"
 

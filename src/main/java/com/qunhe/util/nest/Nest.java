@@ -135,7 +135,11 @@ public class Nest {
         for(int i = 0; i < best.placements.size();i++){
             totalarea += Math.abs(GeometryUtil.polygonArea(binPolygon));
             for(int j = 0 ; j< best.placements.get(i).size() ; j ++){
-                sumarea += Math.abs(GeometryUtil.polygonArea(tree.get(best.placements.get(i).get(j).id)));
+                if (best.placements.get(i).size() > best.placements.get(i).get(j).id && tree.get(best.placements.get(i).get(j).id) != null) {
+                    sumarea += Math.abs(GeometryUtil.polygonArea(tree.get(best.placements.get(i).get(j).id)));
+                } else {
+                    System.out.println("gond van2");
+                }
             }
         }
         double rate = (sumarea/totalarea)*100;
@@ -265,15 +269,21 @@ public class Nest {
             List<Placement> binTranslate = new ArrayList<Placement>();
             for(int j = 0 ; j <best.placements.get(i).size(); j ++){
                 Vector v = best.placements.get(i).get(j);
-                NestPath nestPath = tree.get(v.id);
-                for(NestPath child : nestPath.getChildren()){
-                    Placement chPlacement = new Placement(child.bid , new Segment(v.x,v.y) , v.rotation);
-                    binTranslate.add(chPlacement);
+                if ((v.id<tree.size()) && (tree.get(v.id) != null)) {
+                    NestPath nestPath = tree.get(v.id);
+                    for (NestPath child : nestPath.getChildren()) {
+                        Placement chPlacement = new Placement(child.bid, new Segment(v.x, v.y), v.rotation);
+                        binTranslate.add(chPlacement);
+                    }
+                    Placement placement = new Placement(nestPath.bid, new Segment(v.x, v.y), v.rotation);
+                    binTranslate.add(placement);
+                } else {
+                    System.out.println("gond van");
                 }
-                Placement placement = new Placement(nestPath.bid , new Segment(v.x,v.y) , v.rotation);
-                binTranslate.add(placement);
             }
-            applyPlacement.add(binTranslate);
+            if (binTranslate.size()>0) {
+                applyPlacement.add(binTranslate);
+            }
         }
         return applyPlacement;
     }
