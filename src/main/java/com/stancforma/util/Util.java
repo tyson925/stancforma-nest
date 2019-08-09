@@ -58,12 +58,12 @@ public class Util {
                         double y2 = cy + r * Math.sin(b);
 
                         NestPath path = null;
-                        if (isSweep ) {
-                            path =GeometryUtil.linearize(new Segment(x1, y1),new Segment(x2, y2), r, r, 0,0,0,0.1);
+                        if (isSweep) {
+                            path = GeometryUtil.linearize(new Segment(x1, y1), new Segment(x2, y2), r, r, 0, 0, 0, 0.1);
                         } else {
-                            path =GeometryUtil.linearize(new Segment(x1, y1),new Segment(x2, y2), r, r, 0,0,1,0.1);
+                            path = GeometryUtil.linearize(new Segment(x1, y1), new Segment(x2, y2), r, r, 0, 0, 1, 0.1);
                         }
-                        for (Segment segment : path.getSegments()){
+                        for (Segment segment : path.getSegments()) {
                             polygon.add(segment);
                         }
                     }
@@ -80,7 +80,7 @@ public class Util {
 
             }
 
-
+            reader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
